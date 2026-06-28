@@ -64,15 +64,15 @@ function App() {
       <Toaster />
       <SearchBar onSubmit={onSubmit} />
       {data && data.total_pages > 1 && <ReactPaginate
-        pageCount={data.total_pages as number}
+        pageCount={data.total_pages}
         pageRangeDisplayed={5}
         marginPagesDisplayed={1}
-        onPageActive={handlePageClick}
+        onPageChange={handlePageClick}
         forcePage={page - 1}
         containerClassName={css.pagination}
         activeClassName={css.active}
-        previousLabel="→"
-        nextLabel="←"
+        previousLabel="←"
+        nextLabel="→"
       />}
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
